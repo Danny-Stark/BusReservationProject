@@ -1,0 +1,21 @@
+package com.morningstar.service;
+
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.List;
+
+import com.morningstar.model.Bus;
+import com.morningstar.model.Person;
+import com.morningstar.model.Tickets;
+
+public interface UserService {
+
+	
+	public Person getUserInfo(int id);
+	public List<Bus> getBusBySourceAndDestination(String source,String destination);
+	public List<Bus> getBusBYBetweenTime(Timestamp departTime,Timestamp arriveTime);
+	public List<Bus> getBusForDate(Date date);
+	public List<Tickets> getUserTicketInfo(int id);
+	public int cancelTickets(int fId,int sId);
+	public int booktickets(int fId,int sID);
+}
