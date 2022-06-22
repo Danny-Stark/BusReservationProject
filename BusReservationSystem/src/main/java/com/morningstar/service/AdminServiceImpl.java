@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.morningstar.dao.AdminDao;
 import com.morningstar.dao.UserDao;
 import com.morningstar.model.Bus;
-import com.morningstar.model.Person;
+import com.morningstar.model.Customer;
 import com.morningstar.model.Tickets;
 
 @Service
@@ -50,7 +50,7 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public List<Person> getAllUsers() {
+	public List<Customer> getAllUsers() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -59,6 +59,12 @@ public class AdminServiceImpl implements AdminService{
 	public List<Bus> getAllBuses() {
 		List<Bus> list = dao.getAllBuses();
 		return list;
+	}
+
+	@Override
+	public Bus findBusById(int bId) {
+		Bus bus =  dao.findBusById(bId);
+		return bus;
 	}
 
 	

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.morningstar.dao.RegistrationDao;
 import com.morningstar.dao.UserDao;
 import com.morningstar.model.Bus;
-import com.morningstar.model.Person;
+import com.morningstar.model.Customer;
 import com.morningstar.model.Tickets;
 
 @Service
@@ -27,15 +27,14 @@ public class UserServiceImpl implements UserService{
 		this.dao = dao;
 	}
 	@Override
-	public Person getUserInfo(int id) {
+	public Customer getUserInfo(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Bus> getBusBySourceAndDestination(String source, String destination) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getBusBySourceAndDestination(source, destination);	
 	}
 
 	@Override

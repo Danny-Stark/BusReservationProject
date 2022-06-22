@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.morningstar.dao.RegistrationDao;
-import com.morningstar.model.Person;
+import com.morningstar.model.Customer;
 
 @Service
 public class RegistrationServiceImpl implements RegistrationService{
@@ -19,18 +19,15 @@ public class RegistrationServiceImpl implements RegistrationService{
 		this.dao = dao;
 	}
 	@Override
-	public int addPerson(Person p) {	
-		int result = dao.addPerson(p);
+	public int addCustomer(Customer p) {	
+		int result = dao.addCustomer(p);
 		return result;	
 	}
 
 	@Override
-	public int checkUserInfo(String emailId, String password) {
-		Person result = dao.checkUserInfo(emailId, password);
-		if(result.getEmailId().equals(emailId) && result.getPassword().equals(password))
-			return 1;
-		else
-			return 0;
+	public Customer checkUserInfo(String emailId, String password) {
+		return dao.checkUserInfo(emailId, password);
+		
 	}
 
 }
