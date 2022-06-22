@@ -42,10 +42,9 @@ public class AdminController {
 	public String removeBus(@RequestParam("bId") int id, Model model) {
 		int result = service.removeBus(id);
 		if (result >= 1) {
-			model.addAttribute("eid", id);
-			return "";
+			return "adminDashboard";
 		} else
-			return "redirect:/";
+			return "error";
 
 	}
 
@@ -53,13 +52,40 @@ public class AdminController {
 	@GetMapping(path = "viewBus.do")
 	public String getAllBuses(Model model) {
 		List<Bus> bus = service.getAllBuses();
-		model.addAttribute("busList", bus);
+		model.addAttribute("List", bus);
 		return "viewBus";
 	}
+	
+	// ************ Update bus by Id*************//
+		@GetMapping(path = "updateBusById.view")
+		public String updateBusById() {
+			return "updateBus";
+		}
+
+		// Update record
+		@PostMapping(path = "updateBusById.do")
+		public String updateBusById(@RequestParam("bId") int id, Model model) {
+			Bus bus = service.findBusById(id);
+			model.addAttribute("busupdate", bus);
+			System.out.println(bus);
+			return "updateBusForm";
+
+		}
+
+		// Update record
+		@PostMapping(path = "updateBus.do")
+		public String updateBusById(Bus bus) {
+			int id = bus.getbId();
+			int result = service.updateBusById(bus, id);
+			return "adminDashboard";
+
+		}
 	
 	// Admin Dashboard
 	@GetMapping(path = "adminDashboard.do")
 	public String adminDashboard() {
 		return "adminDashboard";
 	}
+	
+	
 }

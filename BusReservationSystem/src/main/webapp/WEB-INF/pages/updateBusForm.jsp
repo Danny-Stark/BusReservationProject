@@ -1,6 +1,11 @@
-<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%-- <%@page import="com.morningstar.model.Bus"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet"
@@ -17,14 +22,28 @@
 			<p class="lead">This application will help us in
 				adding/removing/modifing/deleting data</p>
 		</div>
-		<form action="removeBus.do" method="post">
-			Enter Bus No:<input type="text" name="bId"> <input
-				type="submit" value="Remove Bus">
+		<form action="updateBus.do" method="post">
+			Bus Id:<input type="text" name="bId"value="${busupdate.bId}"> 
+			Bus Name:<input type="text" name="busName" value="${busupdate.busName}"> 
+			Source:<input type="text" name="source" value="${busupdate.source}">
+			Destination:<input type="text" name=destination value="${busupdate.destination}">
+			DepartDate:<input type="text" name="deparDate" value="${busupdate.deparDate}">
+			DepartTime:<input type="text" name="departTime" value="${busupdate.departTime}">
+			ArriveDate:<input type="text" name="arriveDate" value="${busupdate.arriveDate}">
+			ArriveTime:<input type="text" name="arriveTime" value="${busupdate.arriveTime}">
+			Is Bus Booked:<input type="text" name="isBooked" value="${busupdate.isBooked}">
+			<input type="submit" value="Update Bus">
 		</form>
 </body>
 </html> --%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+
+ 
+ <%@page import="com.morningstar.model.Bus"%>
+<%@page import="java.util.List"%>
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ page isELIgnored="false"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +72,7 @@
 	<section class="background-radial-gradient overflow-hidden">
 		<style>
 .background-radial-gradient {
-	background-color:;
+	background-color: hsl(218, 41%, 15%);
 	background-image: radial-gradient(650px circle at 0% 0%, hsl(218, 41%, 35%)
 		15%, hsl(218, 41%, 30%) 35%, hsl(218, 41%, 20%) 75%,
 		hsl(218, 41%, 19%) 80%, transparent 100%),
@@ -87,7 +106,7 @@
 }
 </style>
 		<div>
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light  py-0">
 				<div class="container-fluid">
 					<div class="d-flex align-items-center mb-12 pb-12">
 						<i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> <img
@@ -118,10 +137,9 @@
 			</nav>
 		</div>
 		<div
-			class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
-
+			class="container px-4 py-5 px-md-5 text-center text-lg-start my-3">
 			<div class="row gx-lg-5 align-items-center mb-5">
-				<div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+				<div class="col-4 mb-5 mb-lg-0" style="z-index: 10">
 					<h1 class="my-5 display-5 fw-bold ls-tight"
 						style="color: hsl(218, 81%, 95%)">
 						Bus Registration<br /> <span style="color: hsl(218, 81%, 75%)">
@@ -134,39 +152,85 @@
 						ab ipsum nisi dolorem modi. Quos?</p>
 				</div>
 
-				<div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+				<div class="col-lg-6  mb-lg-0 position-relative">
 					<div id="radius-shape-1"
 						class="position-absolute rounded-circle shadow-5-strong"></div>
 					<div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
 
 					<div class="card bg-glass">
-						<div class="card-body px-4 py-5 px-md-5">
-							<form action="removeBus.do" method="post">
+						<div class="card-body ">
+							<form  action="updateBus.do" method="post">
 								<!-- 2 column grid layout with text inputs for the first and last names -->
 
 								<!-- Email input -->
-								<div class="form-outline mb-4">
+								<div class="form-outline mb-2">
 									<input type="text" name="bId" id="form3Example3" class="form-control"
-										placeholder="eg.123" /> <label
-										class="form-label" for="form3Example3">Enter Bus No:</label>
+										value="${busupdate.bId}" > <label
+										class="form-label"  for="form3Example3">Bus Id</label>
 								</div>
-								
+								<!-- Password input -->
+								<div class="form-outline mb-2">
+									<input type="text"  name="busName" value="${busupdate.busName}" id="form3Example4" class="form-control"
+									 /> <label class="form-label"
+										for="form3Example4">Bus Name</label>
+								</div>
+								<div class="form-outline mb-2">
+									<input type="text" name="source" value="${busupdate.source}" id="form3Example4" class="form-control"
+									/> <label class="form-label"
+										for="form3Example4">Source</label>
+								</div>
 
+								<div class="form-outline mb-2">
+									<input type="text" name=destination value="${busupdate.destination}"  id="form3Example4" class="form-control"
+										 /> <label class="form-label"
+										for="form3Example4">Destinaton</label>
+								</div>
+								<div class="form-outline mb-2">
+									<input type="date" name="deparDate" value="${busupdate.deparDate}" id="form3Example4" class="form-control"
+									 /> <label class="form-label"
+										for="form3Example4">Departure Date</label>
+								</div>
+								<div class="form-outline mb-2">
+									<input type="time" name="departTime" value="${busupdate.departTime}" id="form3Example4" class="form-control"
+										 /> <label class="form-label"
+										for="form3Example4">Deaprt Time</label>
+								</div>
 
-
+								<div class="form-outline mb-2">
+									<input type="date" name="arriveDate" value="${busupdate.arriveDate}" id="form3Example4" class="form-control"
+										 /> <label class="form-label"
+										for="form3Example4">Arrival Date</label>
+								</div>
+								<div class="form-outline mb-2">
+									<input type="time" name="arriveTime" value="${busupdate.arriveTime}" id="form3Example4" class="form-control"
+									 /> <label class="form-label"
+										for="form3Example4">Arrival Time</label>
+								</div>
+								<div class="form-outline mb-2">
+									<input type="text" name="isBooked" value="${busupdate.isBooked}"  id="form3Example4" class="form-control"
+									 /> <label class="form-label"
+										for="form3Example4">Is Bus Booked</label>
+								</div>
 								<!-- Submit button -->
 								<button type="submit" class="btn btn-primary btn-block mb-4">
-									Remove Bus</button>
-
-								</button>
+									Add Bus</button>
 						</div>
-						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-		</div>
+		<!-- Remove the container if you want to extend the Footer to full width. -->
+
+		<footer class="bg-light text-center text-lg-start">
+			<!-- Copyright -->
+			<div class="text-center p-3"
+				style="background-color: rgba(0, 0, 0, 0.2);">
+				2022 Copyright: <a class="text-dark"
+					href="https://mdbootstrap.com/">TEAM 3</a>
+			</div>
+			<!-- Copyright -->
+		</footer>
 	</section>
-	<!-- Section: Design Block -->
+
 </body>
 </html>

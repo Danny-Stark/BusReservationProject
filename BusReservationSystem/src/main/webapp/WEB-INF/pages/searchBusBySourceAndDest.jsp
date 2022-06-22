@@ -17,15 +17,11 @@
 			<p class="lead">This application will help us in
 				adding/removing/modifing/deleting data</p>
 		</div>
-		<form method="post" action="addPerson.do">
-			Person Title <input type="text" name="title" /> <br>
-			Person FiretName <input type="text" name="fName" /> <br>
-			Person LastName <input type="text" name="lName" /> <br>
-			Person Email <input type="text" name="emailId" /> <br>
-			Person Password <input type="text" name="password" /> <br>
-			Person DOB <input type="text" name="dob" /> <br>
-			Person Mobile <input type="text" name="mobNo" /> <br><br>
-			<input type="submit" value="Add Person">
+		<form method="post" action="searchBusBySourceAndDest.do">
+			Source <input type="text" name="source" /> <br>
+			Destination <input type="text" name="destination" /> <br>
+			<br>
+			<input type="submit" value="Search">
 		</form>
 	</div>
 </body>

@@ -1,6 +1,11 @@
-<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%-- <%@page import="com.morningstar.model.Bus"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet"
@@ -17,13 +22,14 @@
 			<p class="lead">This application will help us in
 				adding/removing/modifing/deleting data</p>
 		</div>
-		<form action="removeBus.do" method="post">
-			Enter Bus No:<input type="text" name="bId"> <input
-				type="submit" value="Remove Bus">
+		<form action="updateBusById.do" method="post">
+			Enter Bus No:<input type="text" name="bId"> 
+			<input type="submit" value="Update Bus">
 		</form>
 </body>
-</html> --%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+</html>
+ --%>
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -141,7 +147,7 @@
 
 					<div class="card bg-glass">
 						<div class="card-body px-4 py-5 px-md-5">
-							<form action="removeBus.do" method="post">
+							<form action="updateBusById.do" method="post">
 								<!-- 2 column grid layout with text inputs for the first and last names -->
 
 								<!-- Email input -->
@@ -156,7 +162,7 @@
 
 								<!-- Submit button -->
 								<button type="submit" class="btn btn-primary btn-block mb-4">
-									Remove Bus</button>
+									Update Bus</button>
 
 								</button>
 						</div>

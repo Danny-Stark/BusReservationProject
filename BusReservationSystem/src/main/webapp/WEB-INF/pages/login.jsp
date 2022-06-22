@@ -13,7 +13,7 @@
 <body>
 	<div class="container">
 		<div class="jumbotron">
-			<h1 class="display-4">BUS RESERVATION SYSTEM</h1>
+			<h1 class="display-4">Bus Reservation system</h1>
 			<p class="lead">This application will help us in
 				adding/removing/modifing/deleting data</p>
 		</div>

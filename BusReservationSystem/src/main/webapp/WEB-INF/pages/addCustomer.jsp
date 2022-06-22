@@ -1,5 +1,5 @@
 <%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,21 +8,29 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Bus Form</title>
+<title>Student Form</title>
 </head>
 <body>
 	<div class="container">
 		<div class="jumbotron">
-			<h1 class="display-4">Bus Managament App</h1>
+			<h1 class="display-4">Bus Reservation system</h1>
 			<p class="lead">This application will help us in
 				adding/removing/modifing/deleting data</p>
 		</div>
-		<form action="removeBus.do" method="post">
-			Enter Bus No:<input type="text" name="bId"> <input
-				type="submit" value="Remove Bus">
+		<form method="post" action="addCustomer.do">
+			Person Title <input type="text" name="title" /> <br>
+			Person FiretName <input type="text" name="fName" /> <br>
+			Person LastName <input type="text" name="lName" /> <br>
+			Person Email <input type="text" name="emailId" /> <br>
+			Person Password <input type="text" name="password" /> <br>
+			Person DOB <input type="text" name="dob" /> <br>
+			Person Mobile <input type="text" name="mobNo" /> <br><br>
+			<input type="submit" value="Add Person">
 		</form>
+	</div>
 </body>
 </html> --%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -51,9 +59,10 @@
 
 	<!-- Section: Design Block -->
 	<section class="background-radial-gradient overflow-hidden">
-		<style>
+<style>
+
 .background-radial-gradient {
-	background-color:;
+	background-color: ;
 	background-image: radial-gradient(650px circle at 0% 0%, hsl(218, 41%, 35%)
 		15%, hsl(218, 41%, 30%) 35%, hsl(218, 41%, 20%) 75%,
 		hsl(218, 41%, 19%) 80%, transparent 100%),
@@ -111,7 +120,8 @@
 									Us</a></li>
 							<li class="nav-item"><a class="nav-link" href="#">About
 									US</a></li>
-							
+							<li class="nav-item"><a class="nav-link" href="#">About
+									US</a></li>
 						</ul>
 					</div>
 				</div>
@@ -141,24 +151,62 @@
 
 					<div class="card bg-glass">
 						<div class="card-body px-4 py-5 px-md-5">
-							<form action="removeBus.do" method="post">
+							<form  method="post" action="addCustomer.do">
 								<!-- 2 column grid layout with text inputs for the first and last names -->
+								<div class="row">
+									<div class="col-md-4 mb-2">
+										<div class="form-outline">
+											<input type="text" name="title" id="form3Example1" class="form-control"
+												placeholder="eg.Mr/Ms" /> <label class="form-label"
+												for="form3Example1">Title</label>
+										</div>
+									</div>
+									<div class="col-md-4 mb-2">
+										<div class="form-outline">
+											<input type="text" name="fName" id="form3Example1" class="form-control"
+												placeholder="eg.Abc" /> <label class="form-label"
+												for="form3Example1">First name</label>
+										</div>
+									</div>
+									<div class="col-md-4 mb-2">
+										<div class="form-outline">
+											<input type="text" name="lName" id="form3Example2" class="form-control"
+												placeholder="eg.Xyz" /> <label class="form-label"
+												for="form3Example2">Last name</label>
+										</div>
+									</div>
+								</div>
 
 								<!-- Email input -->
 								<div class="form-outline mb-4">
-									<input type="text" name="bId" id="form3Example3" class="form-control"
-										placeholder="eg.123" /> <label
-										class="form-label" for="form3Example3">Enter Bus No:</label>
+									<input type="email" name="emailId" id="form3Example3" class="form-control"
+										placeholder="eg.example@mail.com" /> <label
+										class="form-label" for="form3Example3">Email address</label>
 								</div>
-								
-
-
+								<!-- Password input -->
+								<div class="form-outline mb-4">
+									<input type="password" name="password" id="form3Example4" class="form-control"
+										placeholder="eg.Pass@123" /> <label class="form-label"
+										for="form3Example4">Password</label>
+								</div>
+								<div class="form-outline mb-4">
+									<input type="text" name="mobNo" id="form3Example4" class="form-control"
+										placeholder="mobile number" /> <label class="form-label"
+										for="form3Example4">Mobile No</label>
+								</div>
+								<div class="form-outline mb-4">
+									<input type="date" name="dob" id="form3Example4" class="form-control"
+										placeholder="mobile number" /> <label class="form-label"
+										for="form3Example4">DOB</label>
+								</div>
 
 								<!-- Submit button -->
-								<button type="submit" class="btn btn-primary btn-block mb-4">
-									Remove Bus</button>
+								<button type="submit" class="btn btn-primary btn-block mb-4" value="Add Person">
+									Sign up</button>
+
 
 								</button>
+							
 						</div>
 						</form>
 					</div>
